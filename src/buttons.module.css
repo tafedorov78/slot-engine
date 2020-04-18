@@ -1,0 +1,61 @@
+body{
+    overflow: hidden;
+    position:fixed;
+}
+.wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.canvasContainer {
+}
+
+.spinBtn {
+    background:url(./images/autoplay.svg) no-repeat;
+    cursor:pointer;
+    width: 331px;
+    height: 331px;
+    transform: scale(0.7);
+    border: none;
+    right: 100px;
+    bottom: 0;
+    z-index:2;
+    opacity:0.4;
+    position:absolute;
+
+    -o-transition: all 0.4s ease-in;
+    -moz-transition: all 0.4s ease-in;
+    -webkit-transition: all 0.4s ease-in;
+    transition: all 0.4s ease-in;
+
+}
+
+.spinBtn.pulse{
+    transform: scale(0.2);
+}
+
+.spinBtn.pressed  {
+    -o-transform: translateX(90px);
+    -ms-transform: translateX(90px);
+    -moz-transform: translateX(90px);
+    -webkit-transform: translateX(90px);
+    transform: translateX(90px) scale(0.7) rotate(40deg);
+    opacity: 0.2;
+}
+
+
+@keyframes pulse {
+    from {
+        transform : scale(0.7);
+        opacity   : 0.4;
+    }
+    50% {
+        transform : scale(0.65);
+        opacity   : 0.25;
+    }
+    to {
+        transform : scale(0.7);
+        opacity   : 0.4;
+    }
+}
