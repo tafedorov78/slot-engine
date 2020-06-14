@@ -2,14 +2,15 @@ import Config from "../config/Config"
 import Utils from "../utils/Utils"
 import BaseContainer from "./BaseContainer"
 import Symbol from "../symbols/Symbol"
+import Signals from "../signals/Signals";
 
 export default class SymbolsContainer extends BaseContainer {
 
 
   constructor(data) {
     super(data)
-    this.init()
     SymbolsContainer.instance = this
+    Signals.init.add(this.init, this)
   }
 
   poolIn = (symbol) => {
@@ -34,7 +35,7 @@ export default class SymbolsContainer extends BaseContainer {
     }
   }
 
-  init() {
+  init(initData) {
     this.pool = []
     this.allSymbols = []
     let yy
@@ -43,10 +44,10 @@ export default class SymbolsContainer extends BaseContainer {
     for (let i = 0; i < Config.TOTAL_REELS; i ++) {
       this.allSymbols.push([])
       yy = -Config.SYMBOL_HEIGHT[i] * (Config.TOTAL_SYMBOLS_PER_REEL[i] - Config.VISIBLED_SYMBOLS[i]) / 2
-      xx = Config.SYMBOL_HEIGHT[i] * i
+      xx = Config.pattern.reels.reels[i].x
 
       for (let j = 0; j < Config.TOTAL_SYMBOLS_PER_REEL[i]; j ++) {
-        let symbol = this.poolOut(Math.ceil(Utils.randomNumber(0, 9)))
+        let symbol = this.poolOut(initData[i][j])
         symbol.x = xx
         symbol.y = yy
         yy += Config.SYMBOL_HEIGHT[i]
@@ -54,11 +55,13 @@ export default class SymbolsContainer extends BaseContainer {
         this.allSymbols[i].push(symbol)
       }
     }
-
     SymbolsContainer.allSymbols = this.allSymbols
     SymbolsContainer.poolIn = this.poolIn
     SymbolsContainer.poolOut = this.poolOut
+
+    Signals.gameInited.dispatch()
   }
+
 
 
 

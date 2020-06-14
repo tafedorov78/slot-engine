@@ -1,14 +1,13 @@
 import BaseContainer from "./BaseContainer";
 import SymbolsContainer from "./SymbolsContainer";
-import LinesContainer from "./LinesContainer";
-import Background from "../background/Background";
+import BackgroundContainer from "./BackgroundContainer";
 import Config from "../config/Config";
 import * as PIXI from "pixi.js";
-import DecorationContainer from "./DecorationContainer";
 import Signals from "../signals/Signals";
-import gsap from "gsap"
-import {Power2} from "gsap"
-
+import Utils from "../utils/Utils";
+import PaytableContainer from "./PaytableContainer";
+import LinesContainer from "./LinesContainer";
+import ShowWinContainer from "./ShowWinContainer";
 
 export default class MainContainer extends BaseContainer {
 
@@ -21,27 +20,31 @@ export default class MainContainer extends BaseContainer {
 
   init(data) {
     //Creation back layer
-    const background = new Background()
-    this.addChild(background)
+    const backgroundContainer = new BackgroundContainer()
+    this.addChild(backgroundContainer)
 
     //Creation symbols layer
     this.symbolsContainer = new SymbolsContainer()
-    this.symbolsContainer.x = Config.CANVAS_WIDTH_LANDSCAPE / 2
-    this.symbolsContainer.y = Config.pattern.reels.y + 650
-    this.symbolsContainer.pivot.x = this.symbolsContainer.width / 2
-    this.symbolsContainer.pivot.y = this.symbolsContainer.height / 2
-
-
+    Utils.applyFromPattern(this.symbolsContainer, Config.pattern.reels)
     this.addChild(this.symbolsContainer)
 
+    const paytableContainer = new PaytableContainer()
+    paytableContainer.x = 0
+    paytableContainer.y = 0
+    this.addChild(paytableContainer)
+
+    const linesContainer = new LinesContainer()
+    linesContainer.x = 0
+    linesContainer.y = 0
+    this.addChild(linesContainer)
+
+    const showContainer = new ShowWinContainer()
+    showContainer.x = 0
+    showContainer.y = 0
+    this.addChild(showContainer)
+
+
     this.createSymbolMask()
-
-    //Creation decoration layer
-
-    //const linesContainer = new LinesContainer()
-
-    this.decorationContainer = new DecorationContainer()
-    this.addChild(this.decorationContainer)
 
     window.dispatchEvent(new Event('resize'))
   }
@@ -58,8 +61,8 @@ export default class MainContainer extends BaseContainer {
   createSymbolMask() {
 
     const mask = new PIXI.Graphics()
-    mask.beginFill(0x0FF000)
-    mask.drawRect(Config.pattern.reels.x, Config.pattern.reels.y - 55, Config.SYMBOL_HEIGHT[0] * Config.VISIBLED_REELS, Config.SYMBOL_HEIGHT[0] * Config.VISIBLED_SYMBOLS[0] + 50)
+    mask.beginFill(0x0FF000, 0.3)
+    mask.drawRect(Config.pattern.reels.x, Config.pattern.reels.y, Config.pattern.reels.width, Config.pattern.reels.height)
     mask.endFill()
     this.symbolsContainer.mask = mask
     this.addChild(mask)

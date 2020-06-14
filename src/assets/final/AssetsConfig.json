@@ -12,11 +12,6 @@
       "name": "asset-1",
       "path": "asset-1.json",
       "metadata": {}
-    },
-    {
-      "name": "asset-2",
-      "path": "asset-2.json",
-      "metadata": {}
     }
   ],
   "metadata": {

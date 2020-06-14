@@ -11,7 +11,7 @@ export default class Symbol extends BaseSymbol {
     this.isBlurred = false
     this.symbolIndex = index
     this.frames = []
-    const textureName = PIXI.Texture.from(`graphics/symbols/static/icon_${index}`)
+    const textureName = PIXI.Texture.from(`symbols/static/icon${index}`)
 
     this.frames.push(textureName)
     this.frames.push(textureName)
@@ -24,7 +24,7 @@ export default class Symbol extends BaseSymbol {
   changeTextureByIndex(index) {
     this.symbolIndex = index
     this.frames.length = 0
-    const textureName = PIXI.Texture.from(`graphics/symbols/static/icon_${index}`)
+    const textureName = PIXI.Texture.from(`symbols/static/icon${index}`)
 
     this.frames.push(textureName)
     this.frames.push(textureName)

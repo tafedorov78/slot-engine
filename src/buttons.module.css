@@ -3,59 +3,119 @@ body{
     position:fixed;
 }
 .wrapper {
+    display: flex;
     position: relative;
     top: 0;
     left: 0;
 }
 
+.ui {
+    display: flex;
+    position: fixed;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    width: 100%;
+    bottom: 0;
+    align-items: center;
+    justify-content: space-around;
+}
+
 .canvasContainer {
+}
+
+.balance {
+    outline: none;
+    color: #fff;
+    background: transparent;
+    border: none;
+    font-size: 25px;
+    width: auto;
+
+}
+
+.balance.scalePulse {
+    -webkit-animation: scalePulse 500ms; /* Safari 4+ */
+    -moz-animation:    scalePulse 500ms; /* Fx 5+ */
+    -o-animation:      scalePulse 500ms; /* Opera 12+ */
+    animation:         scalePulse 500ms;
+    animation-iteration-count: 1;
+}
+
+.balanceContainer {
+    cursor:pointer;
+    z-index:3;
+    border: none;
+}
+
+.balanceLabel {
+    font-size: 25px;
+    color: #fff;
+    font-family: Arial;
+}
+
+.debagDataLabel {
+    font-size: 15px;
+    color: #fff;
+    font-family: Arial;
+    margin: 5px;
 }
 
 .spinBtn {
     background:url(./images/autoplay.svg) no-repeat;
     cursor:pointer;
-    width: 331px;
-    height: 331px;
-    transform: scale(0.7);
+    width: 100px;
+    height: 100px;
     border: none;
-    right: 100px;
-    bottom: 0;
     z-index:2;
     opacity:0.4;
-    position:absolute;
-
     -o-transition: all 0.4s ease-in;
     -moz-transition: all 0.4s ease-in;
     -webkit-transition: all 0.4s ease-in;
     transition: all 0.4s ease-in;
-
 }
 
-.spinBtn.pulse{
-    transform: scale(0.2);
-}
 
 .spinBtn.pressed  {
-    -o-transform: translateX(90px);
-    -ms-transform: translateX(90px);
-    -moz-transform: translateX(90px);
-    -webkit-transform: translateX(90px);
-    transform: translateX(90px) scale(0.7) rotate(40deg);
+    -o-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    -moz-transform: translateX(10px);
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px) rotate(20deg);
     opacity: 0.2;
 }
 
+.debagContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 0;
+    left: 0;
+}
 
-@keyframes pulse {
+.debugBtn{
+    background-color: #CECFCD;
+    border: none;
+    color: #000000;
+    overflow: auto;
+    padding: 15px 32px;
+    font-family: Arial;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+@keyframes scalePulse {
     from {
-        transform : scale(0.7);
-        opacity   : 0.4;
+        transform: scale(1.0);
     }
     50% {
-        transform : scale(0.65);
-        opacity   : 0.25;
+        transform: scale(1.5);
     }
     to {
-        transform : scale(0.7);
-        opacity   : 0.4;
+        transform: scale(1.0);
     }
 }

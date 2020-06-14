@@ -5,7 +5,7 @@ import GameStatesEnum from "../GameStatesEnum";
 export default class IdleState extends BaseState {
 
   begin() {
-    Signals.spinBtnPressed.addOnce(this.end, this)
+    Signals.spinBtnPressed.add(this.end, this)
   }
 
 
@@ -13,5 +13,9 @@ export default class IdleState extends BaseState {
   end = () => {
     let gameState = GameStatesEnum.PRE_SPIN_START
     this.stateMachine.setState(gameState)
+  }
+
+  cleanUp() {
+    Signals.spinBtnPressed.remove(this.end, this)
   }
 }

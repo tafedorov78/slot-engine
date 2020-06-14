@@ -1,5 +1,4 @@
 import * as PIXI from "pixi.js"
-import Signals from '../signals/Signals'
 import ScaleManager from "./ScaleManager";
 import Config from "../config/Config";
 
@@ -15,9 +14,6 @@ export default class Stage {
       height: Config.CANVAS_HEIGHT_LANDSCAPE
     })
     new ScaleManager(this.app)
-
-    this.spinBtn = document.getElementById('spinBtn')
-
 
     return this.app.stage
   }

@@ -3,7 +3,7 @@ import {Power2} from "gsap"
 import * as PIXI from 'pixi.js'
 import SymbolsContainer from "../../containers/SymbolsContainer";
 import BaseReelManager from "./BaseReelManager";
-import Utils from "../../utils/Utils";
+import Signals from "../../signals/Signals";
 
 export default class VerticalReelManager extends BaseReelManager {
 
@@ -14,15 +14,18 @@ export default class VerticalReelManager extends BaseReelManager {
     this.blurFilter.blurX = 0
     this.blurFilter.blurY = 8
     this.blurFilter.autoFit = true
+    Signals.init.add(this.init, this)
+  }
 
-    this.poolIn = SymbolsContainer.poolIn
-    this.poolOut = SymbolsContainer.poolOut
-
+  init() {
     this.parse(SymbolsContainer.allSymbols)
   }
 
   parse ( allSymbols ) {
     this.symbols = allSymbols[this.index]
+    this.poolIn = SymbolsContainer.poolIn
+    this.poolOut = SymbolsContainer.poolOut
+    this.pasteSymbolsIntoTempContainer()
   }
 
   start = () => {
@@ -43,6 +46,7 @@ export default class VerticalReelManager extends BaseReelManager {
   onStartComplete = () => {
     this.symbols.forEach(symbol => symbol.start())
     this.ticker.start()
+    this.setBlur()
   }
 
   move () {
@@ -69,25 +73,14 @@ export default class VerticalReelManager extends BaseReelManager {
   stop = (data) => {
     let distance
     let td
-    this.stopData = null
-    this.stopData = [
-      Utils.getRandomKey(1, 10),
-      Utils.getRandomKey(1, 10),
-      Utils.getRandomKey(1, 10),
-      Utils.getRandomKey(1, 10),
-      Utils.getRandomKey(1, 10),
-      Utils.getRandomKey(1, 10),
-      Utils.getRandomKey(1, 10)
-    ]
-
-    this.addStopDataSymbols(this.stopData)
+    this.addStopDataSymbols(data)
 
     let extraSymbols = (this.totaSymbolsPerReel - this.visibledSymbols) / 2
     distance = (0 - this.symbols[extraSymbols].y + this.stopBounce)
     td = '+=' + String(distance)
     let t = (distance / (this.speed * 30))
     this.ticker.stop()
-    gsap.to(this.symbols, t, { y: td, onComplete: this.onStopTweenComplete })
+    gsap.to(this.symbols, t, { y: td, ease:Power2.easeOut, onComplete: this.onStopTweenComplete })
   }
 
 
@@ -102,6 +95,7 @@ export default class VerticalReelManager extends BaseReelManager {
         this.symbols.unshift(s)
       }
       this.sideSymbol = s
+    this.setUnBlur()
   }
 
   onStopTweenComplete = () => {
@@ -125,5 +119,22 @@ export default class VerticalReelManager extends BaseReelManager {
     this.callback(this.index)
   }
 
+  setBlur() {
+    //setTimeout(() => this.container.filters = [this.blurFilter], 0.5)
+  }
+
+  setUnBlur() {
+    //this.container.filters = null
+  }
+
+  pasteSymbolsIntoTempContainer() {
+    this.container = new PIXI.Container()
+    this.originSymbolParent = this.symbols[0].parent
+    this.originSymbolParent.addChild(this.container)
+
+    for (let i = 0; i < this.symbols.length; i ++) {
+      this.container.addChild(this.symbols[i])
+    }
+  }
 
 }

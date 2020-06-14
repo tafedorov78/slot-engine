@@ -153,7 +153,7 @@
         <key>trimSpriteNames</key>
         <true/>
         <key>prependSmartFolderName</key>
-        <true/>
+        <false/>
         <key>autodetectAnimations</key>
         <true/>
         <key>globalSpriteSettings</key>
@@ -181,8 +181,11 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">graphics/background/main_bg.jpg</key>
-            <key type="filename">graphics/background/main_bg_freeSpins.jpg</key>
+            <key type="filename">graphics/symbols/static/icon1.png</key>
+            <key type="filename">graphics/symbols/static/icon2.png</key>
+            <key type="filename">graphics/symbols/static/icon3.png</key>
+            <key type="filename">graphics/symbols/static/icon4.png</key>
+            <key type="filename">graphics/symbols/static/icon5.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -191,221 +194,9 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>342,192,683,384</rect>
+                <rect>35,30,71,61</rect>
                 <key>scale9Paddings</key>
-                <rect>342,192,683,384</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">graphics/decorations/bottomFrame.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>332,35,664,70</rect>
-                <key>scale9Paddings</key>
-                <rect>332,35,664,70</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">graphics/decorations/logo_en.png</key>
-            <key type="filename">graphics/decorations/logo_ru.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>187,44,375,87</rect>
-                <key>scale9Paddings</key>
-                <rect>187,44,375,87</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">graphics/decorations/topFrame.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>332,36,664,72</rect>
-                <key>scale9Paddings</key>
-                <rect>332,36,664,72</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">graphics/paytable/infoNext_btn/disabled.png</key>
-            <key type="filename">graphics/paytable/infoNext_btn/down.png</key>
-            <key type="filename">graphics/paytable/infoNext_btn/enabled.png</key>
-            <key type="filename">graphics/paytable/infoNext_btn/over.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>87,63,173,127</rect>
-                <key>scale9Paddings</key>
-                <rect>87,63,173,127</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">graphics/paytable/infoPrew_btn/disabled.png</key>
-            <key type="filename">graphics/paytable/infoPrew_btn/down.png</key>
-            <key type="filename">graphics/paytable/infoPrew_btn/enabled.png</key>
-            <key type="filename">graphics/paytable/infoPrew_btn/over.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>89,64,178,127</rect>
-                <key>scale9Paddings</key>
-                <rect>89,64,178,127</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">graphics/paytable/lines_1.png</key>
-            <key type="filename">graphics/paytable/lines_2.png</key>
-            <key type="filename">graphics/preloader/preloader_bg.jpg</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>342,192,683,383</rect>
-                <key>scale9Paddings</key>
-                <rect>342,192,683,383</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">graphics/paytable/pages_panel/5.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>11,12,23,24</rect>
-                <key>scale9Paddings</key>
-                <rect>11,12,23,24</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">graphics/paytable/pages_panel/6.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>10,9,21,17</rect>
-                <key>scale9Paddings</key>
-                <rect>10,9,21,17</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">graphics/preloader/1.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>87,18,173,35</rect>
-                <key>scale9Paddings</key>
-                <rect>87,18,173,35</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">graphics/preloader/2.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>82,19,165,37</rect>
-                <key>scale9Paddings</key>
-                <rect>82,19,165,37</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">graphics/preloader/game_logo.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>198,37,397,75</rect>
-                <key>scale9Paddings</key>
-                <rect>198,37,397,75</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">graphics/preloader/progress.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>84,19,167,39</rect>
-                <key>scale9Paddings</key>
-                <rect>84,19,167,39</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">graphics/symbols/static/icon_1.png</key>
-            <key type="filename">graphics/symbols/static/icon_10.png</key>
-            <key type="filename">graphics/symbols/static/icon_2.png</key>
-            <key type="filename">graphics/symbols/static/icon_3.png</key>
-            <key type="filename">graphics/symbols/static/icon_4.png</key>
-            <key type="filename">graphics/symbols/static/icon_6.png</key>
-            <key type="filename">graphics/symbols/static/icon_7.png</key>
-            <key type="filename">graphics/symbols/static/icon_8.png</key>
-            <key type="filename">graphics/symbols/static/icon_9.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>52,55,103,109</rect>
-                <key>scale9Paddings</key>
-                <rect>52,55,103,109</rect>
+                <rect>35,30,71,61</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

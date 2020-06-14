@@ -6,7 +6,7 @@ import PreSpinStartState from './states/PreSpinStartState'
 import SpinStartState from './states/SpinStartState'
 import GetSpinResponseState from './states/GetSpinResponseState'
 import SpinStopState from './states/SpinStopState'
-
+import ShowWinningsState from "./states/ShowWinningsState";
 import Signals from "../signals/Signals";
 
 
@@ -23,6 +23,7 @@ export default class StateMachine {
     this.addState(GetSpinResponseState, GameStatesEnum.GET_SPIN_RESPONSE)
     this.addState(SpinStopState, GameStatesEnum.SPIN_STOP)
     this.addState(FinalState, GameStatesEnum.FINAL)
+    this.addState(ShowWinningsState, GameStatesEnum.SHOW_WINNINGS)
   }
 
   addState (GameStatesEnum, id) {

@@ -16,6 +16,10 @@ export default class SpinButtonManager extends BaseManager {
     this.spinBtn.className = "spinBtn pressed"
   }
 
+  spinHTMLPressed() {
+    Signals.spinBtnPressed.dispatch()
+  }
+
   onStateChanged(state) {
     switch (state) {
       case GameStatesEnum.IDLE:
@@ -27,8 +31,8 @@ export default class SpinButtonManager extends BaseManager {
 
 
   parse () {
-    this.spinBtn = document.getElementById('spinBtn')
-    this.spinBtn.addEventListener('click', () => Signals.spinBtnPressed.dispatch(), false)
+    this.spinBtn = document.getElementsByClassName('spinBtn')[0]
+    this.spinBtn.addEventListener('click', this.spinHTMLPressed.bind(this), false)
   }
 
 }
