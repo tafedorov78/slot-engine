@@ -20,7 +20,12 @@ export default class BalanceManager extends BaseManager {
   }
 
   onBalanceChanged(value) {
-    Facade.model.balance = this.balanceElement.value
+    if(Number.isInteger(Number(this.balanceElement.value)) && Number(this.balanceElement.value) <= 5000) {
+      Facade.model.balance = this.balanceElement.value
+    } else {
+      alert("Balance value must be in range 1...5000.")
+      this.setBalance(Facade.model.balance.toFixed(2))
+    }
   }
 
   setBalance(value) {
