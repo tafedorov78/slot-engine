@@ -33,7 +33,7 @@
     "@babel/polyfill": "^7.8.7",
     "gsap": "^3.2.6",
     "html-webpack-plugin": "^4.0.4",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "pixi-assetslist-loader": "^1.0.0",
     "pixi-particles": "^4.2.0",
     "pixi.js": "^5.2.1"
